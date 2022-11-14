@@ -43,7 +43,7 @@ namespace FileManagerComandsLib.Comands
                 if (filesList.Length > 0) _printList += ("__________Файлы__________" + "\n");
                 foreach (FileInfo file in filesList)
                 {
-                    var message = file.Name;
+                    string message = file.Name;
                     _printList += (message + "\n");
                 }
             }
