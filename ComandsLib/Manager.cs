@@ -9,6 +9,7 @@ namespace ComandsLib
         public Manager()
         {
             SetComandsList();
+            _args = new string[3];
         }
 
 
@@ -52,8 +53,23 @@ namespace ComandsLib
         /// </summary>
         private void ParseComandString(string comand)
         {
-            _args = comand.Split(' ');
-            
+            string[] str = comand.Split(' ');
+            _args[0] = str[0];
+            if (str.Length > 1)
+            {
+                comand = comand.Substring(_args[0].Length);
+                if (comand.Contains('>'))
+                {
+                    string[] str2 = comand.Split('>');
+                    _args[1] = str2[0].Trim();
+                    _args[2] = str2[1].Trim();
+                }
+                else
+                {
+                    _args[1] = comand.Trim();
+                }
+            }
+
         }
         /// <summary>
         /// Возвращает справку по всем командам
