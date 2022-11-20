@@ -39,7 +39,7 @@ namespace FileManagerComandsLib.Comands
                         string destFile = Path.Combine(args[2], fileName);
                         File.Copy(file, destFile, true);
                     }
-                    successful = "Успешно";
+                    successful = "Успешно!!!";
                 }
                 else
                     successful = "Не удалось найти папку по указанному пути";

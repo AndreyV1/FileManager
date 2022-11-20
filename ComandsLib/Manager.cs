@@ -13,9 +13,12 @@ namespace ComandsLib
         }
 
 
-        //copy filename.txt C:\\ D:\\
-        private string[] _args;                 //copy filename.txt C:\\ D:\\
+        
+        private string[] _args;                 
         private static List<IComands> _comands = new List<IComands>();
+        /// <summary>
+        /// Автоматически создает лист команд
+        /// </summary>
         private void SetComandsList()
         {
             Assembly asm = Assembly.LoadFrom("FileManagerComandsLib.dll");
@@ -31,6 +34,11 @@ namespace ComandsLib
                 }
             }
         }
+        /// <summary>
+        /// проверка на правильность введенной команды
+        /// </summary>
+        /// <param name="comand"></param>
+        /// <returns></returns>
         public string ExecuteComand(string comand)
         {
             ParseComandString(comand);
@@ -41,6 +49,8 @@ namespace ComandsLib
                 {
                     result = com.Execute(_args);
                 }
+                
+
             }
             if (result == "")
                 return "Ошибка!";
@@ -75,10 +85,11 @@ namespace ComandsLib
         /// Возвращает справку по всем командам
         /// </summary>
         /// <returns></returns>
-        public string ComandsInfo()
+        public static string ComandsInfo()
         {
-            //Логика
-            return "Что-то";
+            foreach (IComands com in _comands)
+                return com.ComandInfo();
+            return "";
         }
 
     }
