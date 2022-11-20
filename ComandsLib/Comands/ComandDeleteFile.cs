@@ -20,8 +20,8 @@ namespace FileManagerComandsLib.Comands
         {
             {"DeleteFile", "DeleteFile" },
             {"deletefile", "DeleteFile" },
-            {"DF", "DeleteFile" },
-            {"df", "DeleteFile" }
+            {"DFL", "DeleteFile" },
+            {"dfl", "DeleteFile" }
         };
         public Dictionary<string, string> ComandName()
         {

@@ -3,11 +3,13 @@
 namespace Program;
 class Program
 {
+    public static bool running = true;
     static void Main()
     {
         Manager manager = new Manager();
+        
 
-        //while (true)
+        while (running)
         {
 
 
@@ -25,12 +27,13 @@ class Program
     }
     static void ConsoleComandExecute(string comandName)
     {
+        
         switch (comandName)
         {
-            case "exit":
-                //какая-то лоика
+            case "!exit":
+                running = false;
                 break;
-            case "clear":
+            case "!clear":
                 Console.Clear();
                 break;
 
