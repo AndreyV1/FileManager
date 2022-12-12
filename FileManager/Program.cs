@@ -15,8 +15,9 @@ class Program
 
 
             string comand = Console.ReadLine();
-            ConsoleComandExecute(comand);
             Console.WriteLine(manager.ExecuteComand(comand));
+            ConsoleComandExecute(comand);
+            
 
 
 
